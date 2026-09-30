@@ -1,0 +1,22 @@
+{
+  "name": "facade-ui",
+  "description": "Build accessible marketing pages from Facade UI sections and templates, installed with the shadcn CLI. Heroes, feature grids, pricing tables, FAQs, footers and complete landing pages.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Facade UI",
+    "url": "https://facadeui.dev"
+  },
+  "homepage": "https://facadeui.dev",
+  "repository": "https://github.com/facade-ui/skill",
+  "license": "MIT",
+  "keywords": [
+    "shadcn",
+    "registry",
+    "marketing",
+    "landing-page",
+    "react",
+    "nextjs",
+    "tailwind",
+    "accessibility"
+  ]
+}
