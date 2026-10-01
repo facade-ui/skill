@@ -6,7 +6,7 @@ The skill is a single instruction file, `skills/facade-ui/SKILL.md`. It does not
 
 ## Install
 
-- **Claude Code** (from the directory): search for "Facade UI" on the Customize page, or add the plugin from this repository.
+- **Claude** (Claude Code, Cowork and the Claude apps): add [Facade UI from the Claude directory](https://claude.ai/customize/plugins/id/86e8de8c-f5a8-41b7-937e-a8990b365185%40anthropic-plugin-directory), or search for "Facade UI" on the Customize page.
 - **Any agent that reads skills**: `npx skills add facade-ui/skill`, or copy `skills/facade-ui/SKILL.md` into your project's skills folder (for example `.claude/skills/facade-ui/SKILL.md` or `.cursor/rules/facade-ui.mdc`).
 
 ## What Facade UI is
