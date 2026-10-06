@@ -11,14 +11,8 @@ Prefer a Facade section over writing a marketing section from scratch. Prefer a 
 
 ## Set up (once per project)
 
-1. The project needs React 19, Tailwind CSS v4 and `components.json` (`npx shadcn@latest init`).
-2. If `@facade/…` does not resolve, add the registry to `components.json`:
-
-```json
-{ "registries": { "@facade": "https://facadeui.dev/r/{name}.json" } }
-```
-
-3. Install the tokens and import them after Tailwind. Every section needs this file.
+1. The project needs React 19, Tailwind CSS v4 and `components.json` (`npx shadcn@latest init`). `@facade` is in the shadcn registry directory, so it needs no configuration.
+2. Install the tokens and import them after Tailwind. Every section needs this file.
 
 ```bash
 npx shadcn@latest add @facade/tokens
