@@ -1,6 +1,6 @@
 ---
 name: facade-ui
-description: Build accessible marketing pages with Facade UI, a shadcn registry of sections and page templates (heroes, feature grids, pricing tables, FAQs, footers, complete landing pages). Use when asked to build or extend a landing page or marketing site in a React or Next.js project that uses shadcn, Tailwind CSS v4 and React 19.
+description: Build accessible marketing pages with Facade UI, a shadcn registry of sections and page templates (heroes, feature grids, pricing tables, FAQs, contact forms, footers, complete landing pages, changelogs and docs pages). Use when asked to build or extend a landing page, marketing site, changelog, documentation page or contact form in a React or Next.js project that uses shadcn, Tailwind CSS v4 and React 19.
 ---
 
 # Facade UI
@@ -35,9 +35,9 @@ If the project already has a shadcn theme, keep its colour variables below the i
 
 ## Items
 
-- Sections: `nav-top`, `hero-centered`, `hero-split`, `hero-with-media`, `logo-cloud`, `usp-list`, `feature-grid`, `feature-rows`, `bento-grid`, `feature-tabs`, `stats`, `steps`, `testimonials-grid`, `testimonial-single`, `team`, `pricing-tiers`, `pricing-comparison`, `faq-accordion`, `card-list`, `newsletter`, `cta-band`, `banner`, `footer`, `nav-side`. Each has a `-motion` version.
-- Templates: `saas-landing`, `agency`, `product-launch`.
-- Atoms: `button`, `badge`, `heading`, `eyebrow`, `container`, `section`, `section-header`, `cta-group`, `stat`, `logo-mark`, `feature-icon`, `testimonial`, `pricing-tier`, `input`.
+- Sections: `nav-top`, `nav-side`, `hero-centered`, `hero-split`, `hero-with-media`, `logo-cloud`, `usp-list`, `feature-grid`, `feature-rows`, `bento-grid`, `feature-tabs`, `stats`, `steps`, `testimonials-grid`, `testimonial-single`, `team`, `pricing-tiers`, `pricing-comparison`, `faq-accordion`, `card-list`, `changelog-list`, `contact-form`, `newsletter`, `cta-band`, `banner`, `footer`. Most have a `-motion` version named `<name>-motion`; search to see which.
+- Templates: `saas-landing`, `agency`, `product-launch`, `changelog`, `docs-site`.
+- Atoms: `button`, `badge`, `heading`, `eyebrow`, `container`, `section`, `section-header`, `cta-group`, `stat`, `logo-mark`, `feature-icon`, `testimonial`, `pricing-tier`, `input`, `select`, `textarea`, `prose`.
 
 ## Compose a page
 
@@ -52,16 +52,28 @@ Rules:
 - Prices: give `srPrice` ("29 dollars per month") next to the visible `price` ("$29").
 - Do not set text in `--primary`; it is a fill, icon and focus-ring colour.
 
+## Forms
+
+- For a contact form, use `contact-form`. It makes no network call: pass `onSubmit`, then set `status` (`idle`, `submitting`, `success`, `error`) and `errors` (keyed by field `name`) from your form action. It checks required fields and email format itself and announces the result.
+- Describe its fields as data: `{ name, label, type, required, options }`, where `type` is `text`, `email`, `tel`, `select` or `textarea`. Give `autoComplete` for name, email and company fields.
+- For a single field, use `input`, `select` or `textarea`. `label` is required; use `hideLabel` instead of a placeholder-only field. Pass a server error as `error`. Do not add a `*` for required fields; the atom writes "(required)".
+
 ## Templates
 
 Install one (`npx shadcn@latest add @facade/saas-landing`), render it from `app/page.tsx` with a content object, and remove what is not needed. A template sets the outline: one `h1`, sections at `h2`.
 
+- `saas-landing`, `agency` and `product-launch` are marketing pages.
+- `changelog` lists releases from `content.releases`; each change has a `kind` (`added`, `changed`, `fixed`, `removed`, `deprecated`, `security`).
+- `docs-site` is a documentation page: the article body goes in `children` (rendered markdown works), styled by `prose`. Render it from a layout or page per docs route and pass `currentPath`.
+
 ```tsx
+import Link from "next/link"
+
 import { SaasLanding } from "@/components/templates/saas-landing"
 import { content } from "./content"
 
 export default function Page() {
-  return <SaasLanding {...content} />
+  return <SaasLanding content={content} link={Link} />
 }
 ```
 

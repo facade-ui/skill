@@ -1,6 +1,6 @@
 # Facade UI skill for Claude Code
 
-A skill that teaches Claude how to build accessible marketing pages with [Facade UI](https://facadeui.dev): sections and page templates (heroes, feature grids, pricing tables, FAQs, footers and complete landing pages) installed with the shadcn CLI.
+A skill that teaches Claude how to build accessible marketing pages with [Facade UI](https://facadeui.dev): sections and page templates (heroes, feature grids, pricing tables, FAQs, contact forms, footers, complete landing pages, changelogs and docs pages) installed with the shadcn CLI.
 
 The skill is a single instruction file, `skills/facade-ui/SKILL.md`. It does not run any code, start any server or send any data. It tells the agent how to set up the `@facade` registry, how to find and read items on facadeui.dev, and the rules that keep a page accessible: one `h1`, heading levels as props, `link` and `image` components, alt text and spoken prices.
 
